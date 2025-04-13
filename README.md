@@ -19,6 +19,32 @@ are manually created.
   * [Data Prep Cheatsheet](wrangler-docs/cheatsheet.md)
 
 ## New Features
+New Token Types in Grammar
+Added support in the Wrangler grammar to recognize byte size and time duration values using new lexer tokens (BYTE_SIZE, TIME_DURATION).
+
+ByteSize & TimeDuration Classes
+Introduced two new Java classes (ByteSize.java and TimeDuration.java) to parse and convert unit strings into a consistent format (e.g., bytes or nanoseconds).
+
+aggregate-stats Directive
+A brand new directive that:
+
+Aggregates byte sizes and time durations from input columns.
+
+Outputs the total (or average) in a specified unit like MB or seconds.
+
+Useful for summarizing data transfer, response times, etc.
+
+Unit Conversion Built-In
+Automatically converts values like 1.5MB or 200ms into canonical units for easy aggregation and reporting.
+
+Comprehensive Tests
+Added test cases to validate:
+
+ByteSize and TimeDuration parsing logic.
+
+The grammar and parser rules for the new syntax.
+
+End-to-end testing of the aggregate-stats directive using sample data.
 
 More [here](wrangler-docs/upcoming-features.md) on upcoming features.
 
